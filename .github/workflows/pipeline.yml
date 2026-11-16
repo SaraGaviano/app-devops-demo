@@ -45,4 +45,22 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses:
+      - uses: actions/checkout@v4
+      - name: ServiceNow Change
+        id: create
+        uses: ServiceNow/servicenow-devops-change@v7.1.0
+        with:
+          devops-integration-user-name: ${{ secrets.SN_USER }}
+          devops-integration-user-password: ${{ secrets.SN_PASSWORD }}
+          instance-url: ${{ vars.SN_INSTANCE_URL }}
+          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+          context-github: ${{ toJSON(github) }}
+          job-name: 'Deploy'
+          change-request: '{"setCloseCode":"true","autoCloseChange":true,"attributes":{"type":"Normal","short_description":"Deploy app-devops-demo","description":"Deploy automatico dalla pipeline GitHub","assignment_group":"b85d44954a3623120004689b2d5dd60a","implementation_plan":"Deploy dell applicazione dopo approvazione della change","backout_plan":"Ripristino della versione precedente","test_plan":"Verifica della build e dei test della pipeline"}}'
+          interval: '100'
+          timeout: '3600'
+          changeCreationTimeOut: '3600'
+          abortOnChangeCreationFailure: true
+          abortOnChangeStepTimeout: true
+      - name: Deploy simulato
+        run: echo "Deploy in produzione simulato"
