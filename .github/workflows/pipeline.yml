@@ -55,7 +55,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Deploy'
-          change-request: '{"setCloseCode":"true","autoCloseChange":true,"attributes":{"short_description":"Deploy app-devops-demo","description":"Deploy automatico dalla pipeline GitHub","assignment_group":"3Db85d44954a3623120004689b2d5dd60a","implementation_plan":"Deploy dell applicazione dopo approvazione della change","backout_plan":"Ripristino della versione precedente","test_plan":"Verifica della build e dei test della pipeline"}}'
+          change-request: '{"setCloseCode":"true","autoCloseChange":true,"attributes":{"short_description":"Deploy app-devops-demo","description":"Deploy automatico dalla pipeline GitHub","assignment_group":"SYS_ID_GRUPPO","implementation_plan":"Deploy dell applicazione dopo approvazione della change","backout_plan":"Ripristino della versione precedente","test_plan":"Verifica della build e dei test della pipeline"}}'
           interval: '100'
           timeout: '3600'
           changeCreationTimeOut: '3600'
