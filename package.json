@@ -1,0 +1,11 @@
+{
+  "name": "app-devops-demo",
+  "version": "1.0.0",
+  "description": "App di esempio per la demo ServiceNow DevOps",
+  "main": "index.js",
+  "scripts": {
+    "build": "node -e \"require('./index.js'); console.log('Build OK')\"",
+    "test": "node test.js"
+  },
+  "license": "MIT"
+}
