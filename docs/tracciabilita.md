@@ -6,3 +6,4 @@ Convenzioni del progetto "Sviluppo sito web - demo" (contenuto fittizio).
 - Commit: il messaggio cita l'issue con #N.
 - Pull Request: descrizione con "Closes #N" e riferimento alla Change ServiceNow (CHG...).
 - La Change ServiceNow resta il riferimento di governance del deploy.
+- Esempio di messaggio di commit: "Aggiorna pagina Chi siamo #1".
