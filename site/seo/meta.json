@@ -1,0 +1,10 @@
+{
+  "pagine": [
+    { "percorso": "/", "title": "Home - Sito di esempio", "description": "Presentazione del gruppo e delle principali aree del sito." },
+    { "percorso": "/chi-siamo", "title": "Chi siamo - Sito di esempio", "description": "Missione, valori e storia del gruppo." },
+    { "percorso": "/prodotti", "title": "Prodotti e servizi - Sito di esempio", "description": "Schede dei prodotti e dei servizi offerti." },
+    { "percorso": "/news", "title": "News - Sito di esempio", "description": "Comunicati e notizie dal gruppo." },
+    { "percorso": "/contatti", "title": "Contatti - Sito di esempio", "description": "Modulo di contatto e sedi." }
+  ],
+  "note": "Un titolo e una meta description per pagina, senza duplicati. Dati di esempio."
+}
