@@ -1,0 +1,13 @@
+/* Intestazione del sito: colori con contrasto aumentato (#3) */
+.site-header {
+  background-color: #0b2545;   /* blu scuro */
+  color: #ffffff;              /* rapporto di contrasto 15,5:1 */
+}
+.site-header a {
+  color: #ffffff;
+}
+.site-header a:hover,
+.site-header a:focus {
+  color: #ffd166;              /* giallo, contrasto 9,8:1 sul blu scuro */
+  outline: 2px solid #ffd166;
+}
