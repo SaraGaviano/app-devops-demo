@@ -46,6 +46,9 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v4
+      - name: Leggi release da release.json
+        id: rel
+        run: echo "sys_id=$(jq -r .software_model_sys_id release.json)" >> "$GITHUB_OUTPUT"
       - name: ServiceNow Change
         id: create
         uses: ServiceNow/servicenow-devops-change@v7.1.0
@@ -56,7 +59,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Deploy'
-          change-request: '{"setCloseCode":"true","autoCloseChange":false,"attributes":{"short_description":"DEMO - Rilascio applicazione web di esempio build 1.${{ github.run_number }}","description":"Progetto di esempio per demo cliente. Rilascio generato dalla pipeline GitHub, commit ${{ github.sha }}, run ${{ github.run_number }}. Deploy simulato: nessun sistema di produzione viene modificato. Test automatici superati nella stessa run.","implementation_plan":"1. Build e registrazione dell artefatto 1.${{ github.run_number }} in DevOps. 2. Test automatici. 3. Approvazione CAB. 4. Deploy simulato in ambiente di prova.","backout_plan":"Ripristino della versione precedente dell artefatto registrata nella run precedente, oppure git revert del commit ${{ github.sha }} e nuova esecuzione della pipeline. Tempo stimato di ripristino: 15 minuti.","test_plan":"npm test superato nella run ${{ github.run_number }}, con evidenza collegata alla pipeline in DevOps.","assignment_group":"b85d44954a3623120004689b2d5dd60a"}}'
+          change-request: '{"setCloseCode":"true","autoCloseChange":false,"attributes":{"short_description":"DEMO - Rilascio applicazione web di esempio build 1.${{ github.run_number }}","description":"Progetto di esempio per demo cliente. Rilascio generato dalla pipeline GitHub, commit ${{ github.sha }}, run ${{ github.run_number }}. Deploy simulato: nessun sistema di produzione viene modificato. Test automatici superati nella stessa run.","implementation_plan":"1. Build e registrazione dell artefatto 1.${{ github.run_number }} in DevOps. 2. Test automatici. 3. Approvazione CAB. 4. Deploy simulato in ambiente di prova.","backout_plan":"Ripristino della versione precedente dell artefatto registrata nella run precedente, oppure git revert del commit ${{ github.sha }} e nuova esecuzione della pipeline. Tempo stimato di ripristino: 15 minuti.","test_plan":"npm test superato nella run ${{ github.run_number }}, con evidenza collegata alla pipeline in DevOps.","assignment_group":"b85d44954a3623120004689b2d5dd60a","software_model":"${{ steps.rel.outputs.sys_id }}"}}'
           interval: '100'
           timeout: '3600'
           changeCreationTimeOut: '3600'

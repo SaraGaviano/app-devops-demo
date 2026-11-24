@@ -1,0 +1,11 @@
+{
+  "pagina": "home",
+  "immagini": [
+    { "file": "hero-cantiere.jpg", "alt": "Veduta del cantiere con una nave in allestimento" },
+    { "file": "team-progetto.jpg", "alt": "Team di progetto riunito intorno a un tavolo di lavoro" },
+    { "file": "impianto-nuovo.jpg", "alt": "Esterno del nuovo impianto di produzione" },
+    { "file": "separatore-onda.svg", "alt": "" },
+    { "file": "sfondo-motivo.png", "alt": "" }
+  ],
+  "note": "Le immagini decorative hanno alt vuoto. Dati di esempio."
+}
